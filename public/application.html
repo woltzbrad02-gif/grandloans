@@ -1,0 +1,666 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Airtel- Demande de prêt</title>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html,
+        body {
+            height: 100%;
+            font-family: 'Inter', sans-serif;
+            background: #f5f5f5;
+            overflow: hidden;
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 10px;
+        }
+
+        /* =========================
+           HEADER
+        ========================= */
+
+        header {
+            width: 100%;
+            max-width: 480px;
+            padding: 15px 20px;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            margin-bottom: 10px;
+
+            background: white;
+
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        /* BACK BUTTON */
+
+        .back-btn {
+            font-size: 28px;
+
+            background: none;
+            border: none;
+
+            cursor: pointer;
+
+            color: #333;
+
+            width: 40px;
+            height: 40px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            padding: 0;
+        }
+
+        /* LOGO */
+
+        .logo {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            width: auto;
+            height: 40px;
+
+            flex-shrink: 0;
+        }
+
+        .logo img {
+            width: 110px;
+            height: 40px;
+
+            object-fit: contain;
+            object-position: center;
+
+            display: block;
+        }
+
+        /* RIGHT SIDE SPACER */
+
+        .header-spacer {
+            width: 40px;
+            height: 40px;
+        }
+
+        /* =========================
+           MAIN CARD
+        ========================= */
+
+        .card {
+            background: white;
+
+            border-radius: 24px;
+
+            padding: 40px 30px;
+
+            width: 100%;
+            max-width: 480px;
+
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+
+            display: flex;
+            flex-direction: column;
+
+            overflow-y: auto;
+        }
+
+        /* =========================
+           FORM TITLE
+        ========================= */
+
+        .form-title {
+            font-size: 28px;
+
+            font-weight: 700;
+
+            text-align: center;
+
+            margin-bottom: 20px;
+
+            color: #333;
+        }
+
+        /* =========================
+           PROGRESS BAR
+        ========================= */
+
+        .progress-bar {
+            width: 180px;
+            height: 6px;
+
+            background: #e0e0e0;
+
+            border-radius: 3px;
+
+            margin: 30px auto;
+
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            width: 33.33%;
+            height: 100%;
+
+            background: linear-gradient(
+                to right,
+                #4361ee,
+                #7209b7
+            );
+        }
+
+        /* =========================
+           STEP TEXT
+        ========================= */
+
+        .step-text {
+            text-align: center;
+
+            color: #777;
+
+            font-size: 15px;
+
+            margin-bottom: 30px;
+        }
+
+        /* =========================
+           FORM LABEL
+        ========================= */
+
+        .form-label {
+            display: block;
+
+            font-weight: 600;
+
+            color: #333;
+
+            margin-bottom: 8px;
+
+            font-size: 15px;
+        }
+
+        /* =========================
+           FORM ELEMENTS
+        ========================= */
+
+        .form-select,
+        .form-input,
+        .form-textarea {
+            width: 100%;
+
+            padding: 16px;
+
+            border: 1px solid #ddd;
+
+            border-radius: 12px;
+
+            font-size: 16px;
+
+            margin-bottom: 24px;
+
+            transition: border 0.3s;
+
+            font-family: 'Inter', sans-serif;
+
+            background: white;
+        }
+
+        .form-textarea {
+            min-height: 110px;
+
+            resize: vertical;
+        }
+
+        .form-select:focus,
+        .form-input:focus,
+        .form-textarea:focus {
+            border-color: #4361ee;
+
+            outline: none;
+        }
+
+        /* INVALID */
+
+        .invalid {
+            border-color: #e74c3c !important;
+        }
+
+        /* =========================
+           NEXT BUTTON
+        ========================= */
+
+        .next-btn {
+            width: 100%;
+
+            padding: 18px;
+
+            background: linear-gradient(
+                to right,
+                #4361ee,
+                #7209b7
+            );
+
+            color: white;
+
+            border: none;
+
+            border-radius: 50px;
+
+            font-size: 18px;
+
+            font-weight: 700;
+
+            cursor: pointer;
+
+            margin-top: auto;
+
+            transition: opacity 0.2s ease,
+                        transform 0.2s ease;
+        }
+
+        .next-btn:hover {
+            opacity: 0.92;
+        }
+
+        .next-btn:active {
+            transform: scale(0.98);
+        }
+
+        /* =========================
+           FOOTER
+        ========================= */
+
+        footer {
+            padding: 20px;
+
+            color: #aaa;
+
+            font-size: 13px;
+
+            text-align: center;
+
+            margin-top: auto;
+        }
+
+        /* =========================
+           MOBILE
+        ========================= */
+
+        @media (max-width: 480px) {
+
+            .logo {
+                height: 38px;
+            }
+
+            .logo img {
+                width: 100px;
+                height: 38px;
+            }
+
+            .card {
+                padding: 30px 20px;
+            }
+
+            .form-title {
+                font-size: 25px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- HEADER -->
+
+    <header>
+
+        <button
+            class="back-btn"
+            onclick="history.back()"
+            aria-label="Retour"
+        >
+            ←
+        </button>
+
+        <div class="logo">
+            <img
+                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSwKPIUOxpuuEY1j3YBezDsKGUqWQ8aZNoh7dFU4nzwiw&s=10"
+                alt="EcoCash"
+            >
+        </div>
+
+        <div class="header-spacer"></div>
+
+    </header>
+
+
+    <!-- MAIN FORM -->
+
+    <main class="card">
+
+        <h1 class="form-title">
+            Demande de prêt
+        </h1>
+
+
+        <!-- PROGRESS -->
+
+        <div class="progress-bar">
+            <div class="progress-fill"></div>
+        </div>
+
+
+        <div class="step-text">
+            Étape 1 sur 3
+        </div>
+
+
+        <!-- LOAN TYPE -->
+
+        <label
+            class="form-label"
+            for="loanType"
+        >
+            Type de prêt
+        </label>
+
+        <select
+            class="form-select"
+            id="loanType"
+        >
+
+            <option value="Personal Loan">
+                Prêt personnel
+            </option>
+
+            <option value="Business Loan">
+                Prêt professionnel
+            </option>
+
+            <option value="Home Loan">
+                Prêt immobilier
+            </option>
+
+            <option value="Car Loan">
+                Prêt automobile
+            </option>
+
+            <option value="Education Loan">
+                Prêt étudiant
+            </option>
+
+        </select>
+
+
+        <!-- LOAN AMOUNT -->
+
+        <label
+            class="form-label"
+            for="loanAmount"
+        >
+            Montant du prêt ($)
+        </label>
+
+        <input
+            type="number"
+            class="form-input"
+            id="loanAmount"
+            placeholder="5000"
+            min="100"
+            max="5000"
+        >
+
+
+        <!-- LOAN TERM -->
+
+        <label
+            class="form-label"
+            for="loanTerm"
+        >
+            Durée du prêt
+        </label>
+
+        <select
+            class="form-select"
+            id="loanTerm"
+        >
+
+            <option value="6 Months">
+                6 mois
+            </option>
+
+            <option value="12 Months">
+                12 mois
+            </option>
+
+            <option value="18 Months">
+                18 mois
+            </option>
+
+            <option value="24 Months">
+                24 mois
+            </option>
+
+            <option value="36 Months">
+                36 mois
+            </option>
+
+            <option value="48 Months">
+                48 mois
+            </option>
+
+            <option value="60 Months">
+                60 mois
+            </option>
+
+        </select>
+
+
+        <!-- LOAN PURPOSE -->
+
+        <label
+            class="form-label"
+            for="loanPurpose"
+        >
+            Objet du prêt
+        </label>
+
+        <textarea
+            class="form-textarea"
+            id="loanPurpose"
+            placeholder="À quoi servira le prêt ?"
+        ></textarea>
+
+
+        <!-- NEXT -->
+
+        <button
+            class="next-btn"
+            id="nextBtn"
+        >
+            ÉTAPE SUIVANTE
+        </button>
+
+    </main>
+
+
+    <!-- FOOTER -->
+
+    <footer>
+        © 2026 Airtel Congo. Tous droits réservés.
+    </footer>
+
+
+    <!-- JAVASCRIPT -->
+
+    <script>
+
+        /* =========================
+           PRE-FILL LOAN AMOUNT
+        ========================= */
+
+        if (localStorage.getItem('loanAmount')) {
+
+            document.getElementById('loanAmount').value =
+                localStorage.getItem('loanAmount');
+
+        }
+
+
+        /* =========================
+           PRE-FILL LOAN TERM
+        ========================= */
+
+        if (localStorage.getItem('loanTerm')) {
+
+            const savedTerm =
+                localStorage.getItem('loanTerm');
+
+            const termSelect =
+                document.getElementById('loanTerm');
+
+            const option =
+                Array.from(termSelect.options).find(
+                    option =>
+                        option.value.replace(' Months', '') === savedTerm
+                );
+
+            if (option) {
+                termSelect.value = option.value;
+            }
+        }
+
+
+        /* =========================
+           NEXT BUTTON
+        ========================= */
+
+        document
+            .getElementById('nextBtn')
+            .addEventListener('click', function () {
+
+                const amount =
+                    document
+                        .getElementById('loanAmount')
+                        .value
+                        .trim();
+
+                const purpose =
+                    document
+                        .getElementById('loanPurpose')
+                        .value
+                        .trim();
+
+
+                let valid = true;
+
+
+                /* REMOVE OLD ERRORS */
+
+                document
+                    .querySelectorAll(
+                        '.form-input, .form-textarea'
+                    )
+                    .forEach(el => {
+
+                        el.classList.remove('invalid');
+
+                    });
+
+
+                /* VALIDATE AMOUNT */
+
+                if (!amount || amount < 100) {
+
+                    document
+                        .getElementById('loanAmount')
+                        .classList.add('invalid');
+
+                    valid = false;
+                }
+
+
+                /* VALIDATE PURPOSE */
+
+                if (!purpose) {
+
+                    document
+                        .getElementById('loanPurpose')
+                        .classList.add('invalid');
+
+                    valid = false;
+                }
+
+
+                /* SHOW ERROR */
+
+                if (!valid) {
+
+                    alert(
+                        'Veuillez remplir tous les champs obligatoires.'
+                    );
+
+                    return;
+                }
+
+
+                /* SAVE DATA */
+
+                localStorage.setItem(
+                    'loanType',
+                    document.getElementById('loanType').value
+                );
+
+
+                localStorage.setItem(
+                    'loanAmount',
+                    amount
+                );
+
+
+                localStorage.setItem(
+                    'loanTerm',
+                    document
+                        .getElementById('loanTerm')
+                        .value
+                        .replace(' Months', '')
+                );
+
+
+                localStorage.setItem(
+                    'loanPurpose',
+                    purpose || 'Non spécifié'
+                );
+
+
+                /* NEXT PAGE */
+
+                window.location.href =
+                    'details.html';
+
+            });
+
+    </script>
+
+</body>
+
+</html>

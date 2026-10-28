@@ -1,0 +1,735 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Congo Renewal Grant Fund | Mobile Aid & Community Support</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts (Inter & Merriweather) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Merriweather:ital,wght@0,400;0,700;1,300&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            emerald: '#055338',
+                            forest: '#0a3827',
+                            gold: '#d97706',
+                            warmGold: '#f59e0b',
+                            terracotta: '#c2410c',
+                            sand: '#fef3c7',
+                            sky: '#0284c7',
+                            airtel: '#e11d48'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Merriweather', 'serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .gradient-bg {
+            background: linear-gradient(135deg, #0a3827 0%, #055338 50%, #064e3b 100%);
+        }
+        
+        .airtel-badge-glow {
+            box-shadow: 0 0 15px rgba(225, 29, 72, 0.4);
+        }
+        
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 24px -10px rgba(0, 0, 0, 0.15);
+        }
+    </style>
+</head>
+
+<body class="font-sans bg-slate-50 text-slate-800 antialiased leading-relaxed">
+
+    <!-- Top Announcement Bar -->
+    <div class="bg-brand-forest text-amber-200 text-xs md:text-sm py-2 px-4 text-center font-medium border-b border-emerald-800 flex items-center justify-center gap-2">
+        <span class="inline-block w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+        <span>DRC Community Uplift Fund Active &bull; Emergency Direct Grants via Airtel Money</span>
+    </div>
+
+    <!-- Navigation Bar -->
+    <nav class="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-slate-200 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-20 items-center">
+                <!-- Brand Logo -->
+                <div class="flex items-center gap-3">
+                    <div class="w-12 h-12 rounded-xl bg-gradient-to-tr from-emerald-800 to-brand-gold flex items-center justify-center text-white shadow-md">
+                        <i class="fa-solid font-bold text-2xl fa-hand-holding-heart"></i>
+                    </div>
+                    <div>
+                        <span class="text-xl font-bold font-serif text-brand-forest block leading-tight">Congo Renewal</span>
+                        <span class="text-xs font-semibold text-emerald-700 tracking-wider uppercase">Humanitarian Grant Initiative</span>
+                    </div>
+                </div>
+
+                <!-- Desktop Nav Links -->
+                <div class="hidden md:flex items-center space-x-8 text-sm font-medium text-slate-600">
+                    <a href="#mission" class="hover:text-emerald-700 transition-colors">Our Pillars</a>
+                    <a href="#calculator" class="hover:text-emerald-700 transition-colors">Grant Estimator</a>
+                    <a href="#process" class="hover:text-emerald-700 transition-colors">How It Works</a>
+                    <a href="#airtel-section" class="hover:text-emerald-700 transition-colors">Airtel Disbursement</a>
+                    <a href="#faq" class="hover:text-emerald-700 transition-colors">FAQs</a>
+                </div>
+
+                <!-- Action Button -->
+                <div class="hidden sm:flex items-center gap-3">
+                    <a href="grand.html" class="inline-flex items-center gap-2 bg-brand-airtel hover:bg-rose-700 text-white px-5 py-2.5 rounded-full text-sm font-semibold shadow-md transition-all transform hover:scale-105">
+                        <i class="fa-solid fa-mobile-screen-button"></i> Request Grant via Airtel
+                    </a>
+                </div>
+
+                <!-- Mobile menu button -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-btn" class="text-slate-600 hover:text-slate-900 focus:outline-none p-2" aria-label="Toggle menu">
+                        <i class="fa-solid fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Navigation Drawer -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-b border-slate-200 px-4 pt-2 pb-6 space-y-3">
+            <a href="#mission" class="block py-2 text-slate-700 hover:text-emerald-700 font-medium">Our Pillars</a>
+            <a href="#calculator" class="block py-2 text-slate-700 hover:text-emerald-700 font-medium">Grant Estimator</a>
+            <a href="#process" class="block py-2 text-slate-700 hover:text-emerald-700 font-medium">How It Works</a>
+            <a href="#airtel-section" class="block py-2 text-slate-700 hover:text-emerald-700 font-medium">Airtel Disbursement</a>
+            <a href="#faq" class="block py-2 text-slate-700 hover:text-emerald-700 font-medium">FAQs</a>
+            <div class="pt-2">
+                <a href="grand.html" class="w-full text-center inline-block bg-brand-airtel text-white px-5 py-3 rounded-xl font-semibold shadow">
+                    Request Grant via Airtel
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative gradient-bg text-white py-16 md:py-24 overflow-hidden">
+        <!-- Decorative Background Patterns -->
+        <div class="absolute inset-0 opacity-10 bg-[radial-gradient(#fff_1px,transparent_1px)] [background-size:16px_16px]"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid lg:grid-cols-12 gap-12 items-center">
+
+                <!-- Left Column: Copy -->
+                <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+                    <div class="inline-flex items-center gap-2 bg-emerald-900/80 border border-emerald-500/30 px-3.5 py-1.5 rounded-full text-xs md:text-sm text-emerald-200 font-medium">
+                        <i class="fa-solid fa-earth-africa text-brand-gold"></i> Direct Relief & Infrastructure Support for DRC
+                    </div>
+
+                    <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold font-serif leading-tight text-white">
+                        Empowering Congolese Families with Life-Changing Support
+                    </h1>
+
+                    <p class="text-slate-200 text-base md:text-lg max-w-2xl mx-auto lg:mx-0 font-light">
+                        Direct financial aid dedicated to housing, healthcare, nutrition, daily upkeep, and educational opportunities across the Democratic Republic of the Congo. Safe and direct delivery powered by Airtel Money.
+                    </p>
+
+                    <!-- CTA Group -->
+                    <div class="pt-4 flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
+                        <a href="grand.html" class="w-full sm:w-auto inline-flex items-center justify-center gap-3 bg-brand-airtel hover:bg-rose-700 text-white font-semibold px-8 py-4 rounded-xl shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-0.5 text-base">
+                            <i class="fa-solid fa-paper-plane"></i> Request Grant (grand.html)
+                        </a>
+                        <a href="#mission" class="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-white/10 hover:bg-white/20 text-white border border-white/20 font-medium px-6 py-4 rounded-xl transition-all text-base">
+                            Learn About Funding Pillars
+                            <i class="fa-solid fa-arrow-down text-sm"></i>
+                        </a>
+                    </div>
+
+                    <!-- Trust Stats -->
+                    <div class="pt-8 border-t border-emerald-700/50 grid grid-cols-3 gap-4 text-center lg:text-left">
+                        <div>
+                            <div class="text-2xl md:text-3xl font-bold text-brand-sand">100%</div>
+                            <div class="text-xs text-emerald-200">Direct Airtel Transfer</div>
+                        </div>
+                        <div>
+                            <div class="text-2xl md:text-3xl font-bold text-brand-sand">5 Pillars</div>
+                            <div class="text-xs text-emerald-200">Essential Life Support</div>
+                        </div>
+                        <div>
+                            <div class="text-2xl md:text-3xl font-bold text-brand-sand">26 Provinces</div>
+                            <div class="text-xs text-emerald-200">Nationwide Reach</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Column: Hero Card/Graphic -->
+                <div class="lg:col-span-5">
+                    <div class="bg-white/10 backdrop-blur-md border border-white/20 p-6 md:p-8 rounded-3xl shadow-2xl text-white space-y-6">
+                        <div class="flex items-center justify-between border-b border-white/10 pb-4">
+                            <div class="flex items-center gap-3">
+                                <i class="fa-solid fa-shield-heart text-2xl text-brand-gold"></i>
+                                <span class="font-semibold text-lg">Instant Aid Portal</span>
+                            </div>
+                            <span class="bg-emerald-500/20 text-emerald-300 text-xs px-2.5 py-1 rounded-full border border-emerald-400/30">Verified Initiative</span>
+                        </div>
+
+                        <div class="space-y-4 text-sm text-slate-200">
+                            <div class="flex items-start gap-3">
+                                <div class="w-6 h-6 rounded-full bg-emerald-500/20 text-emerald-300 flex items-center justify-center flex-shrink-0 mt-0.5">
+                                    <i class="fa-solid fa-check text-xs"></i>
+                                </div>
+                                <p><strong>Food & Emergency Upkeep:</strong> Immediate funds for daily nutrition and family needs.</p>
+                            </div>
+                            <div class="flex items-start gap-3">
+                                <div class="w-6 h-6 rounded-full bg-emerald-500/20 text-emerald-300 flex items-center justify-center flex-shrink-0 mt-0.5">
+                                    <i class="fa-solid fa-check text-xs"></i>
+                                </div>
+                                <p><strong>Shelter & Home Construction:</strong> Building resilient homes for displaced families.</p>
+                            </div>
+                            <div class="flex items-start gap-3">
+                                <div class="w-6 h-6 rounded-full bg-emerald-500/20 text-emerald-300 flex items-center justify-center flex-shrink-0 mt-0.5">
+                                    <i class="fa-solid fa-check text-xs"></i>
+                                </div>
+                                <p><strong>Hospitals & Medical Care:</strong> Coverage for surgeries, medicine, and hospital stays.</p>
+                            </div>
+                            <div class="flex items-start gap-3">
+                                <div class="w-6 h-6 rounded-full bg-emerald-500/20 text-emerald-300 flex items-center justify-center flex-shrink-0 mt-0.5">
+                                    <i class="fa-solid fa-check text-xs"></i>
+                                </div>
+                                <p><strong>Education & Schooling:</strong> Tuition fees, textbooks, and school development.</p>
+                            </div>
+                        </div>
+
+                        <div class="bg-brand-forest/60 p-4 rounded-xl border border-white/10 text-center">
+                            <p class="text-xs text-emerald-200 mb-2">Ready to submit your support request?</p>
+                            <a href="grand.html" class="block w-full bg-amber-500 hover:bg-amber-600 text-slate-950 font-bold py-3 rounded-lg text-sm transition-colors">
+                                Apply Now via Airtel (grand.html)
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Mission & Funding Pillars Section -->
+    <section id="mission" class="py-20 bg-slate-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16 space-y-3">
+                <h2 class="text-xs font-bold tracking-widest text-emerald-700 uppercase">Core Grant Pillars</h2>
+                <p class="text-3xl md:text-4xl font-bold font-serif text-slate-900">Dedicated Support Areas for Congo</p>
+                <p class="text-slate-600 text-base">
+                    Recognizing the unique challenges and natural landscape of the Democratic Republic of the Congo, our fund directly targets key pillars required for safety, dignity, and sustainable growth.
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Pillar 1: Food & Upkeep -->
+                <div class="bg-white rounded-2xl p-6 border border-slate-200 shadow-sm card-hover flex flex-col justify-between">
+                    <div>
+                        <div class="w-14 h-14 rounded-2xl bg-amber-100 text-amber-700 flex items-center justify-center text-2xl mb-6">
+                            <i class="fa-solid fa-bowl-food"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-slate-900 mb-2">Food & Daily Upkeep</h3>
+                        <p class="text-slate-600 text-sm mb-4 leading-relaxed">
+                            Providing monthly stipends and emergency grants for essential food supplies, clean water, and basic household necessities for families in need.
+                        </p>
+                    </div>
+                    <div class="pt-4 border-t border-slate-100">
+                        <a href="grand.html" class="inline-flex items-center text-xs font-bold text-amber-700 hover:text-amber-800 gap-1">
+                            Request Food Support <i class="fa-solid fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Pillar 2: Housing & Shelter -->
+                <div class="bg-white rounded-2xl p-6 border border-slate-200 shadow-sm card-hover flex flex-col justify-between">
+                    <div>
+                        <div class="w-14 h-14 rounded-2xl bg-emerald-100 text-emerald-700 flex items-center justify-center text-2xl mb-6">
+                            <i class="fa-solid fa-house-chimney-crack"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-slate-900 mb-2">Shelter & Housing</h3>
+                        <p class="text-slate-600 text-sm mb-4 leading-relaxed">
+                            Building strong, climate-resilient houses and offering repair grants for families impacted by displacement or natural conditions.
+                        </p>
+                    </div>
+                    <div class="pt-4 border-t border-slate-100">
+                        <a href="grand.html" class="inline-flex items-center text-xs font-bold text-emerald-700 hover:text-emerald-800 gap-1">
+                            Apply for Housing Grant <i class="fa-solid fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Pillar 3: Healthcare & Hospitals -->
+                <div class="bg-white rounded-2xl p-6 border border-slate-200 shadow-sm card-hover flex flex-col justify-between">
+                    <div>
+                        <div class="w-14 h-14 rounded-2xl bg-rose-100 text-rose-700 flex items-center justify-center text-2xl mb-6">
+                            <i class="fa-solid fa-hospital-user"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-slate-900 mb-2">Hospital & Healthcare</h3>
+                        <p class="text-slate-600 text-sm mb-4 leading-relaxed">
+                            Covering critical medical bills, emergency surgeries, maternal care, and essential prescription medicine costs across regional hospitals.
+                        </p>
+                    </div>
+                    <div class="pt-4 border-t border-slate-100">
+                        <a href="grand.html" class="inline-flex items-center text-xs font-bold text-rose-700 hover:text-rose-800 gap-1">
+                            Request Health Funds <i class="fa-solid fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Pillar 4: Education & Schools -->
+                <div class="bg-white rounded-2xl p-6 border border-slate-200 shadow-sm card-hover flex flex-col justify-between">
+                    <div>
+                        <div class="w-14 h-14 rounded-2xl bg-sky-100 text-sky-700 flex items-center justify-center text-2xl mb-6">
+                            <i class="fa-solid fa-graduation-cap"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-slate-900 mb-2">Schooling & Education</h3>
+                        <p class="text-slate-600 text-sm mb-4 leading-relaxed">
+                            Funding school tuition, uniforms, educational materials, and building local community learning centers for youth empowerment.
+                        </p>
+                    </div>
+                    <div class="pt-4 border-t border-slate-100">
+                        <a href="grand.html" class="inline-flex items-center text-xs font-bold text-sky-700 hover:text-sky-800 gap-1">
+                            Apply for Education Grant <i class="fa-solid fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Interactive Grant Calculator / Estimator -->
+    <section id="calculator" class="py-16 bg-gradient-to-b from-slate-100 to-white">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="bg-white rounded-3xl shadow-xl border border-slate-200 p-6 md:p-10">
+                <div class="text-center max-w-2xl mx-auto mb-8">
+                    <span class="bg-emerald-100 text-emerald-800 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">Interactive Support Estimator</span>
+                    <h2 class="text-2xl md:text-3xl font-bold font-serif text-slate-900 mt-2">Estimate Your Grant Eligibility</h2>
+                    <p class="text-slate-600 text-sm mt-1">Select your primary aid category and family size to see typical grant allocations processed via Airtel Money.</p>
+                </div>
+
+                <div class="grid md:grid-cols-2 gap-8 items-center">
+                    <!-- Form Controls -->
+                    <div class="space-y-6">
+                        <div>
+                            <label class="block text-sm font-semibold text-slate-700 mb-2">1. Select Aid Category</label>
+                            <select id="calc-category" class="w-full bg-slate-50 border border-slate-300 rounded-xl px-4 py-3 text-slate-800 focus:outline-none focus:ring-2 focus:ring-emerald-600">
+                                <option value="upkeep">Food & Daily Household Upkeep</option>
+                                <option value="housing">Housing Construction & Repairs</option>
+                                <option value="healthcare">Hospital & Medical Assistance</option>
+                                <option value="education">Schooling & Academic Fees</option>
+                            </select>
+                        </div>
+
+                        <div>
+                            <label class="block text-sm font-semibold text-slate-700 mb-2">
+                                2. Household / Dependents Count: <span id="family-count-label" class="font-bold text-emerald-700">3 Persons</span>
+                            </label>
+                            <input type="range" id="family-slider" min="1" max="10" value="3" class="w-full accent-emerald-700 h-2 bg-slate-200 rounded-lg cursor-pointer">
+                            <div class="flex justify-between text-xs text-slate-500 mt-1">
+                                <span>1 Person</span>
+                                <span>5 Persons</span>
+                                <span>10+ Persons</span>
+                            </div>
+                        </div>
+
+                        <div>
+                            <label class="block text-sm font-semibold text-slate-700 mb-2">3. Primary DRC Region</label>
+                            <select id="calc-region" class="w-full bg-slate-50 border border-slate-300 rounded-xl px-4 py-3 text-slate-800 focus:outline-none focus:ring-2 focus:ring-emerald-600">
+                                <option value="kinshasa">Kinshasa & Surrounding Urban Areas</option>
+                                <option value="kivu">North / South Kivu</option>
+                                <option value="katanga">Haut-Katanga & Lualaba</option>
+                                <option value="equateur">Équateur & Central Provinces</option>
+                                <option value="other">Other DRC Regions</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Dynamic Output Box -->
+                    <div class="bg-slate-900 text-white p-6 md:p-8 rounded-2xl flex flex-col justify-between space-y-6 shadow-inner relative overflow-hidden">
+                        <div class="absolute -right-8 -bottom-8 w-32 h-32 bg-emerald-600/20 rounded-full blur-2xl"></div>
+
+                        <div>
+                            <span class="text-xs text-slate-400 font-medium uppercase tracking-wider block mb-1">Estimated Grant Allocation</span>
+                            <div class="text-3xl md:text-4xl font-extrabold text-amber-400 font-serif" id="calc-result-amount">
+                                $350 - $550 USD
+                            </div>
+                            <p class="text-xs text-slate-300 mt-2" id="calc-result-desc">
+                                Allocated for basic food rations, water, and daily household upkeep for 3 dependents.
+                            </p>
+                        </div>
+
+                        <div class="border-t border-slate-800 pt-4 space-y-2 text-xs text-slate-400">
+                            <div class="flex justify-between">
+                                <span>Disbursement Speed:</span>
+                                <span class="text-emerald-400 font-semibold">Instant (Airtel Money)</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span>Verification Required:</span>
+                                <span class="text-slate-200">Airtel Number & National ID</span>
+                            </div>
+                        </div>
+
+                        <a href="grand.html" class="w-full text-center bg-brand-airtel hover:bg-rose-700 text-white font-bold py-3.5 rounded-xl text-sm transition-all shadow-md block">
+                            Proceed with Airtel Application
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Airtel Integration Banner -->
+    <section id="airtel-section" class="py-16 bg-gradient-to-r from-rose-900 via-brand-airtel to-rose-800 text-white relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-12 gap-8 items-center">
+
+                <div class="lg:col-span-8 space-y-4">
+                    <div class="inline-flex items-center gap-2 bg-white/20 backdrop-blur-sm px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wider text-white">
+                        <i class="fa-solid fa-bolt"></i> Mobile Direct Relief Processing
+                    </div>
+                    <h2 class="text-3xl md:text-4xl font-bold font-serif">Grants Disbursed via Airtel Money DRC</h2>
+                    <p class="text-rose-100 text-base max-w-2xl font-light">
+                        To ensure speed, transparency, and safety without physical travel barriers, all grant funds are transferred straight to your registered Airtel Mobile Money wallet anywhere in Congo.
+                    </p>
+                    <div class="flex flex-wrap gap-4 pt-2 text-xs font-medium text-rose-200">
+                        <span class="flex items-center gap-1.5"><i class="fa-solid fa-circle-check text-emerald-300"></i> No Bank Account Needed</span>
+                        <span class="flex items-center gap-1.5"><i class="fa-solid fa-circle-check text-emerald-300"></i> Direct SMS Notification</span>
+                        <span class="flex items-center gap-1.5"><i class="fa-solid fa-circle-check text-emerald-300"></i> Immediate Withdrawal at Local Airtel Agents</span>
+                    </div>
+                </div>
+
+                <div class="lg:col-span-4 text-center lg:text-right">
+                    <div class="bg-white text-slate-900 p-6 rounded-2xl shadow-xl space-y-4">
+                        <div class="text-brand-airtel text-3xl font-bold flex items-center justify-center gap-2">
+                            <i class="fa-solid fa-mobile-retro"></i> Airtel Money
+                        </div>
+                        <p class="text-xs text-slate-600">Click below to start your direct Airtel Money grant application portal.</p>
+                        <a href="grand.html" class="block w-full bg-brand-airtel hover:bg-rose-700 text-white font-bold py-3.5 rounded-xl shadow-lg transition-all text-sm">
+                            Open Request Portal (grand.html)
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Step-by-Step Application Process -->
+    <section id="process" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16 space-y-3">
+                <h2 class="text-xs font-bold tracking-widest text-emerald-700 uppercase">Clear & Transparent</h2>
+                <p class="text-3xl md:text-4xl font-bold font-serif text-slate-900">How to Receive Your Grant</p>
+                <p class="text-slate-600 text-base">Simple, 4-step framework designed for easy mobile submission.</p>
+            </div>
+
+            <div class="grid md:grid-cols-4 gap-8">
+                <!-- Step 1 -->
+                <div class="relative bg-slate-50 p-6 rounded-2xl border border-slate-200 text-center space-y-4">
+                    <div class="w-12 h-12 bg-emerald-800 text-white font-bold text-xl rounded-full flex items-center justify-center mx-auto shadow-md">
+                        1
+                    </div>
+                    <h3 class="font-bold text-lg text-slate-900">Check Eligibility</h3>
+                    <p class="text-xs text-slate-600 leading-relaxed">Ensure you reside in DRC and require aid for food, housing, healthcare, or school fees.</p>
+                </div>
+
+                <!-- Step 2 -->
+                <div class="relative bg-slate-50 p-6 rounded-2xl border border-slate-200 text-center space-y-4">
+                    <div class="w-12 h-12 bg-emerald-800 text-white font-bold text-xl rounded-full flex items-center justify-center mx-auto shadow-md">
+                        2
+                    </div>
+                    <h3 class="font-bold text-lg text-slate-900">Submit Request</h3>
+                    <p class="text-xs text-slate-600 leading-relaxed">Click the button below to navigate to <code class="bg-amber-100 text-amber-900 px-1 rounded">grand.html</code> and fill in your details.</p>
+                </div>
+
+                <!-- Step 3 -->
+                <div class="relative bg-slate-50 p-6 rounded-2xl border border-slate-200 text-center space-y-4">
+                    <div class="w-12 h-12 bg-emerald-800 text-white font-bold text-xl rounded-full flex items-center justify-center mx-auto shadow-md">
+                        3
+                    </div>
+                    <h3 class="font-bold text-lg text-slate-900">Verification</h3>
+                    <p class="text-xs text-slate-600 leading-relaxed">Our regional committee reviews your request and validates your Airtel registered number.</p>
+                </div>
+
+                <!-- Step 4 -->
+                <div class="relative bg-slate-50 p-6 rounded-2xl border border-slate-200 text-center space-y-4">
+                    <div class="w-12 h-12 bg-emerald-800 text-white font-bold text-xl rounded-full flex items-center justify-center mx-auto shadow-md">
+                        4
+                    </div>
+                    <h3 class="font-bold text-lg text-slate-900">Airtel Fund Transfer</h3>
+                    <p class="text-xs text-slate-600 leading-relaxed">Approved funds are directly disbursed to your Airtel wallet with instant SMS alert.</p>
+                </div>
+            </div>
+
+            <div class="text-center mt-12">
+                <a href="grand.html" class="inline-flex items-center gap-2 bg-emerald-800 hover:bg-emerald-900 text-white font-semibold px-8 py-3.5 rounded-xl shadow-md transition-all">
+                    Start Your Application Now
+                    <i class="fa-solid fa-arrow-right text-sm"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials & Impact Stories -->
+    <section class="py-20 bg-slate-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16 space-y-3">
+                <h2 class="text-xs font-bold tracking-widest text-emerald-700 uppercase">Impact Stories</h2>
+                <p class="text-3xl md:text-4xl font-bold font-serif text-slate-900">Voices from Our Beneficiaries</p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Testimonial 1 -->
+                <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm flex flex-col justify-between">
+                    <div class="space-y-4">
+                        <div class="flex text-amber-400 gap-1 text-sm">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                        </div>
+                        <p class="text-slate-600 italic text-sm">
+                            "When our family shelter was damaged, receiving housing grant funds straight through my Airtel phone allowed us to buy roof sheets and pay local builders within days."
+                        </p>
+                    </div>
+                    <div class="pt-6 mt-6 border-t border-slate-100 flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-full bg-emerald-700 text-white font-bold flex items-center justify-center">
+                            MB
+                        </div>
+                        <div>
+                            <div class="font-bold text-slate-900 text-sm">Marie B.</div>
+                            <div class="text-xs text-slate-500">Goma, North Kivu</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 2 -->
+                <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm flex flex-col justify-between">
+                    <div class="space-y-4">
+                        <div class="flex text-amber-400 gap-1 text-sm">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                        </div>
+                        <p class="text-slate-600 italic text-sm">
+                            "The healthcare grant paid for my daughter's emergency treatment at the regional hospital. The direct Airtel Money process was smooth and life-saving."
+                        </p>
+                    </div>
+                    <div class="pt-6 mt-6 border-t border-slate-100 flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-full bg-rose-700 text-white font-bold flex items-center justify-center">
+                            JM
+                        </div>
+                        <div>
+                            <div class="font-bold text-slate-900 text-sm">Jean-Luc M.</div>
+                            <div class="text-xs text-slate-500">Kinshasa</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 3 -->
+                <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm flex flex-col justify-between">
+                    <div class="space-y-4">
+                        <div class="flex text-amber-400 gap-1 text-sm">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                        </div>
+                        <p class="text-slate-600 italic text-sm">
+                            "With the schooling grant, my three children are back in class with paid tuition and proper uniforms. This grant gives our family hope."
+                        </p>
+                    </div>
+                    <div class="pt-6 mt-6 border-t border-slate-100 flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-full bg-sky-700 text-white font-bold flex items-center justify-center">
+                            DK
+                        </div>
+                        <div>
+                            <div class="font-bold text-slate-900 text-sm">Devota K.</div>
+                            <div class="text-xs text-slate-500">Lubumbashi</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Accordion Section -->
+    <section id="faq" class="py-20 bg-white">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-xs font-bold tracking-widest text-emerald-700 uppercase">Frequently Asked Questions</h2>
+                <p class="text-3xl font-bold font-serif text-slate-900 mt-2">Questions About Grants & Process</p>
+            </div>
+
+            <div class="space-y-4" id="faq-container">
+                <!-- FAQ 1 -->
+                <div class="border border-slate-200 rounded-xl overflow-hidden">
+                    <button class="faq-btn w-full px-6 py-4 text-left font-semibold text-slate-800 flex justify-between items-center hover:bg-slate-50 transition-colors">
+                        <span>Who is eligible to request these grant funds?</span>
+                        <i class="fa-solid fa-chevron-down text-xs text-slate-400 transition-transform duration-200"></i>
+                    </button>
+                    <div class="faq-answer hidden px-6 py-4 bg-slate-50 border-t border-slate-100 text-sm text-slate-600 leading-relaxed">
+                        Any citizen or household residing within the Democratic Republic of the Congo requiring aid for basic upkeep, house building, medical hospital care, or children's education can submit a request through <a href="grand.html" class="text-emerald-700 font-bold underline">grand.html</a>.
+                    </div>
+                </div>
+
+                <!-- FAQ 2 -->
+                <div class="border border-slate-200 rounded-xl overflow-hidden">
+                    <button class="faq-btn w-full px-6 py-4 text-left font-semibold text-slate-800 flex justify-between items-center hover:bg-slate-50 transition-colors">
+                        <span>Why are grants disbursed through Airtel Money?</span>
+                        <i class="fa-solid fa-chevron-down text-xs text-slate-400 transition-transform duration-200"></i>
+                    </button>
+                    <div class="faq-answer hidden px-6 py-4 bg-slate-50 border-t border-slate-100 text-sm text-slate-600 leading-relaxed">
+                        Airtel Money provides an accessible, rapid, and secure mobile financial channel across both urban centers and rural territories in DRC without necessitating formal banking infrastructure.
+                    </div>
+                </div>
+
+                <!-- FAQ 3 -->
+                <div class="border border-slate-200 rounded-xl overflow-hidden">
+                    <button class="faq-btn w-full px-6 py-4 text-left font-semibold text-slate-800 flex justify-between items-center hover:bg-slate-50 transition-colors">
+                        <span>Are there any application fees required?</span>
+                        <i class="fa-solid fa-chevron-down text-xs text-slate-400 transition-transform duration-200"></i>
+                    </button>
+                    <div class="faq-answer hidden px-6 py-4 bg-slate-50 border-t border-slate-100 text-sm text-slate-600 leading-relaxed">
+                        No. The grant request process is 100% free of charge. Never pay anyone asking for fee payments to process your grant application.
+                    </div>
+                </div>
+
+                <!-- FAQ 4 -->
+                <div class="border border-slate-200 rounded-xl overflow-hidden">
+                    <button class="faq-btn w-full px-6 py-4 text-left font-semibold text-slate-800 flex justify-between items-center hover:bg-slate-50 transition-colors">
+                        <span>How long does the verification take?</span>
+                        <i class="fa-solid fa-chevron-down text-xs text-slate-400 transition-transform duration-200"></i>
+                    </button>
+                    <div class="faq-answer hidden px-6 py-4 bg-slate-50 border-t border-slate-100 text-sm text-slate-600 leading-relaxed">
+                        Requests are evaluated within 24 to 72 hours. Upon approval, funds are sent directly to your active Airtel line.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Bottom Call to Action -->
+    <section class="py-16 gradient-bg text-white text-center">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
+            <h2 class="text-3xl md:text-4xl font-bold font-serif">Apply For Your Grant Support Today</h2>
+            <p class="text-slate-200 text-base max-w-2xl mx-auto font-light">
+                Do not hesitate to seek support for shelter, food, hospital care, or schooling. Our fund is here to serve the resilience and future of the Congolese people.
+            </p>
+            <div>
+                <a href="grand.html" class="inline-flex items-center gap-3 bg-brand-airtel hover:bg-rose-700 text-white font-bold px-10 py-4 rounded-xl shadow-xl transition-all transform hover:scale-105 text-lg">
+                    <i class="fa-solid fa-paper-plane"></i> Go to Grant Request Page (grand.html)
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-slate-950 text-slate-400 py-12 border-t border-slate-800 text-xs">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
+            <div class="flex flex-col md:flex-row justify-between items-center gap-6">
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-lg bg-emerald-800 text-white flex items-center justify-center font-bold">
+                        <i class="fa-solid fa-hand-holding-heart"></i>
+                    </div>
+                    <div>
+                        <span class="text-white font-bold text-base block font-serif">Congo Renewal Fund</span>
+                        <span>Humanitarian Aid & Community Reconstruction for DRC</span>
+                    </div>
+                </div>
+
+                <div class="flex gap-6 text-slate-300 font-medium">
+                    <a href="#mission" class="hover:text-white transition-colors">Pillars</a>
+                    <a href="#calculator" class="hover:text-white transition-colors">Estimator</a>
+                    <a href="#process" class="hover:text-white transition-colors">Process</a>
+                    <a href="grand.html" class="hover:text-white transition-colors">Apply (grand.html)</a>
+                </div>
+            </div>
+
+            <div class="border-t border-slate-800 pt-6 flex flex-col md:flex-row justify-between items-center gap-4 text-slate-500">
+                <p>&copy; Democratic Republic of the Congo Humanitarian Support Initiative. All rights reserved.</p>
+                <p>Facilitated via Airtel Money Mobile Wallet Services.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Interactive JavaScript -->
+    <script>
+        // Toggle Mobile Menu
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // FAQ Accordion Toggle
+        const faqButtons = document.querySelectorAll('.faq-btn');
+        faqButtons.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const answer = btn.nextElementSibling;
+                const icon = btn.querySelector('i');
+
+                // Toggle current FAQ
+                answer.classList.toggle('hidden');
+                icon.classList.toggle('rotate-180');
+            });
+        });
+
+        // Interactive Grant Calculator Logic
+        const calcCategory = document.getElementById('calc-category');
+        const familySlider = document.getElementById('family-slider');
+        const familyCountLabel = document.getElementById('family-count-label');
+        const calcResultAmount = document.getElementById('calc-result-amount');
+        const calcResultDesc = document.getElementById('calc-result-desc');
+
+        function updateGrantEstimate() {
+            const familySize = parseInt(familySlider.value);
+            const category = calcCategory.value;
+
+            familyCountLabel.textContent = `${familySize} ${familySize === 1 ? 'Person' : 'Persons'}`;
+
+            let baseMin = 150;
+            let baseMax = 250;
+            let categoryText = '';
+
+            switch (category) {
+                case 'upkeep':
+                    baseMin = 100 * familySize;
+                    baseMax = 180 * familySize;
+                    categoryText = `Allocated for monthly staple food supplies, clean water, and daily household upkeep for ${familySize} family members.`;
+                    break;
+                case 'housing':
+                    baseMin = 400 + (familySize * 100);
+                    baseMax = 800 + (familySize * 150);
+                    categoryText = `Allocated for emergency home reconstruction, roofing materials, and shelter structural repairs.`;
+                    break;
+                case 'healthcare':
+                    baseMin = 250 + (familySize * 50);
+                    baseMax = 600 + (familySize * 100);
+                    categoryText = `Allocated for urgent hospital stays, essential surgery support, and prescription medication costs.`;
+                    break;
+                case 'education':
+                    baseMin = 120 * familySize;
+                    baseMax = 220 * familySize;
+                    categoryText = `Allocated for annual school fees, uniform purchases, textbooks, and learning equipment for school-aged dependents.`;
+                    break;
+            }
+
+            calcResultAmount.textContent = `$${baseMin} - $${baseMax} USD`;
+            calcResultDesc.textContent = categoryText;
+        }
+
+        calcCategory.addEventListener('change', updateGrantEstimate);
+        familySlider.addEventListener('input', updateGrantEstimate);
+
+        // Initial trigger
+        updateGrantEstimate();
+    </script>
+</body>
+
+</html>

